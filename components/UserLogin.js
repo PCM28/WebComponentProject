@@ -14,12 +14,8 @@ class UserLogin extends HTMLElement {
         </style>
         <form id="loginForm">
           <h1>User Login</h1>
-          <input type="text" id="username" placeholder="Username" required>
-          <br />
-          <br />
-          <input type="password" id="password" placeholder="Password" required>
-          <br />
-          <br />
+          <input type="text" id="username" placeholder="Username" required> <br /> <br />
+          <input type="password" id="password" placeholder="Password" required> <br /> <br />
           <button id="btn" type="submit">Iniciar Sesión</button>
         </form>
       `;
@@ -34,8 +30,8 @@ class UserLogin extends HTMLElement {
     submitForm(event) {
       event.preventDefault();
 
-      const username = this.loginForm.getElementById("username").value;
-      const password = this.loginForm.getElementById("password").value;
+      const username = this.shadowRoot.getElementById("username").value;
+      const password = this.shadowRoot.getElementById("password").value;
       
       //Login Logic
       const loginSuccess = username === 'admin' && password === '123';
@@ -47,5 +43,4 @@ class UserLogin extends HTMLElement {
 
   }
   
-  customElements.define('user-login', UserLogin);
-  
+customElements.define('user-login', UserLogin);
