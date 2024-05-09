@@ -5,6 +5,9 @@ class AlertMessage extends HTMLElement {
       this.message = ""; //Variable 2 de alert
 
       this.attachShadow( { mode: "open" } );
+    }
+
+    connectedCallback() {
       this.shadowRoot.innerHTML = `
         <style>
           :host {
@@ -17,6 +20,7 @@ class AlertMessage extends HTMLElement {
           <p>Message</p>
         </div>
       `;
+      
     }
 
     //Código restante
