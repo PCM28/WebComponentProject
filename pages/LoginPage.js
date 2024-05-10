@@ -10,9 +10,9 @@ class LoginPage extends HTMLElement {
 
     handleLogin(event) { //Método creado
         const alertMessage = this.shadowRoot.querySelector("alert-message");//Preguntar si usar document o this
-     
         alertMessage.setAttribute("type", event.detail === "success" ? "success" : "error");
         alertMessage.setAttribute("message", event.detail === "success" ? "!Login Successful!" : "Login Error!!");
+        console.log("working...");
     }
 
     connectedCallback() {

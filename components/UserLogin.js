@@ -39,6 +39,9 @@ class UserLogin extends HTMLElement {
       
       //Custom Event
       this.dispatchEvent(new CustomEvent('login-result', { detail: loginResult }));
+      
+      //Testing, sí se envía y recibe los values de los inputs.
+      (loginResult === "success") ? console.log("Working...") : console.log("Not Working...");
     }
 
   }

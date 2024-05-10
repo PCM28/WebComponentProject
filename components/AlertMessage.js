@@ -2,7 +2,7 @@ class AlertMessage extends HTMLElement {
     constructor() {
       super();
       this.type = ""; //Variable 1 de Alert
-      this.message = ""; //Variable 2 de alert
+      this.message = "Message"; //Variable 2 de alert
 
       this.attachShadow( { mode: "open" } );
     }
@@ -13,17 +13,15 @@ class AlertMessage extends HTMLElement {
           :host {
             display: flex;
           }
-          
         </style>
-        <div class="alert">
+        <div class="alert" type="${this.type}">
           <h1>Alert</h1>
-          <p>Message</p>
+          <p>${this.message}</p>
         </div>
       `;
-      
     }
 
-    //Código restante
+    //Código restante, lógica
 
   }
   
