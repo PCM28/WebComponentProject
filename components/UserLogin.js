@@ -14,8 +14,13 @@ class UserLogin extends HTMLElement {
         </style>
         <form id="loginForm">
           <h1>User Login</h1>
-          <input type="text" id="username" placeholder="Username" required> <br /> <br />
-          <input type="password" id="password" placeholder="Password" required> <br /> <br />
+
+          <label for="username">Nombre de Usuario</label>
+          <input type="text" id="username" placeholder="Username" name="username" required> <br /> <br />
+
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="Password" name="password" required> <br /> <br />
+
           <button id="btn" type="submit">Iniciar Sesión</button>
         </form>
       `;
@@ -38,10 +43,12 @@ class UserLogin extends HTMLElement {
       const loginResult = loginSuccess ? 'success' : 'error';
       
       //Custom Event
-      this.dispatchEvent(new CustomEvent('login-result', { detail: loginResult }));
+      this.dispatchEvent(new CustomEvent('login-result', { 
+        detail: loginResult,                    
+        bubbles: true,
+        composed: true
+      }));
       
-      //Testing, sí se envía y recibe los values de los inputs.
-      (loginResult === "success") ? console.log("Working...") : console.log("Not Working...");
     }
 
   }

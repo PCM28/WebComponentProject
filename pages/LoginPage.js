@@ -10,9 +10,10 @@ class LoginPage extends HTMLElement {
 
     handleLogin(event) { //Método creado
         const alertMessage = this.shadowRoot.querySelector("alert-message");//Preguntar si usar document o this
+        const result = event.detail;
+        
         alertMessage.setAttribute("type", event.detail === "success" ? "success" : "error");
-        alertMessage.setAttribute("message", event.detail === "success" ? "!Login Successful!" : "Login Error!!");
-        console.log("working...");
+        alertMessage.setAttribute("message", event.detail === "success" ? "Bienvenido!!!" : "¡Error en la credenciales!");
     }
 
     connectedCallback() {
@@ -22,7 +23,6 @@ class LoginPage extends HTMLElement {
     disconnectedCallback() {
         this.removeEventListener("login-result", this.handleLogin.bind(this));
     }
-
 }
 
 customElements.define("login-page", LoginPage);
